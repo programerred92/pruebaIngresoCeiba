@@ -22,8 +22,6 @@ public class LibroServicioImpl implements LibroServicio {
 
     private final LibroMapper libroMapper;
     private final LibroRepositorio libroRepositorio;
-    private final StockRepositorio stockRepositorio;
-    private final StockMapper stockMapper;
     private Libro libro;
 
     public LibroServicioImpl(LibroMapper libroMapper, LibroRepositorio libroRepositorio) {
