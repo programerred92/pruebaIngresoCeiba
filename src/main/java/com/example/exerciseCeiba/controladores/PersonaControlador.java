@@ -36,5 +36,10 @@ public class PersonaControlador {
             personaServicio.borrarPersona(id);
     }
 
+    @PutMapping("/actualizar")
+    @ResponseStatus(HttpStatus.OK)
+    public PersonaDto actualizarPersona(@RequestBody PersonaDto personaDto){
+        return personaServicio.agregarPersona(personaDto);
+    }
 
 }
