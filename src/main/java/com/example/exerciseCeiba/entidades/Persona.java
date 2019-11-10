@@ -17,6 +17,7 @@ public class Persona {
     private String user;
     @Column(name = "pass", length = 50)
     private String pass;
-    /*@Transient
-    private int id_rol;*/
+    @ManyToOne
+    @JoinColumn(name = "fkRol")
+    private Rol rol;
 }
