@@ -2,6 +2,7 @@ package com.example.exerciseCeiba.controladores;
 
 import com.example.exerciseCeiba.dto.PersonaDto;
 import com.example.exerciseCeiba.entidades.Persona;
+import com.example.exerciseCeiba.mapper.PersonaMapper;
 import com.example.exerciseCeiba.servicios.PersonaServicio;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -15,11 +16,11 @@ public class PersonaControlador {
 
     @Autowired
     private PersonaServicio personaServicio;
+    private PersonaMapper personaMapper;
 
-    @CrossOrigin
     @PostMapping("/agregar")
-    @ResponseStatus(HttpStatus.OK)
-    public PersonaDto createLibro(@RequestBody PersonaDto personaDto){
+    @ResponseStatus(HttpStatus.CREATED)
+    public PersonaDto crearPersona(@RequestBody PersonaDto personaDto){
         return personaServicio.agregarPersona(personaDto);
     }
 
@@ -29,9 +30,11 @@ public class PersonaControlador {
         return personaServicio.consultarPersonas();
     }
 
-    @DeleteMapping("/delete")
+    @DeleteMapping("/borrar/{id}")
     @ResponseStatus(HttpStatus.OK)
-    public void deletePersona(){
-
+    public void deletePersona(@PathVariable int id){
+            personaServicio.borrarPersona(id);
     }
+
+
 }

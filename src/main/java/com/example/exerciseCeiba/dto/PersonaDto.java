@@ -1,7 +1,13 @@
 package com.example.exerciseCeiba.dto;
 
+import com.example.exerciseCeiba.entidades.Rol;
+import lombok.Data;
+
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.validation.constraints.NotNull;
 
+@Data
 public class PersonaDto {
 
     private int id;
@@ -11,34 +17,5 @@ public class PersonaDto {
     private String user;
     @NotNull
     private String password;
-
-    public void setNombreCompleto(String nombreCompleto) {
-        this.nombreCompleto = nombreCompleto;
-    }
-
-    public String getNombreCompleto() {
-        return this.nombreCompleto;
-    }
-
-    public String getUser() {
-        return this.user;
-    }
-
-    public void setUser(String user) {
-        this.user = user;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) { this.id = id; }
+    private Rol rol;
 }
