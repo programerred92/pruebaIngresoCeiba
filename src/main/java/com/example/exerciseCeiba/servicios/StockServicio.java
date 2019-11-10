@@ -9,5 +9,7 @@ public interface StockServicio {
 
     Optional<Stock> buscarLibro(String isbn);
 
+    List<Stock> buscarStock();
+
     //Stock prestarLibro(String isbn);
 }

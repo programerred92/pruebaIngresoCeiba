@@ -12,5 +12,5 @@ public interface LibroServicio {
 
     List<LibroDto> traerLibrosDisponibles();
 
-    LibroDto prestarLibro(String isbn);
+    LibroDto prestarLibro(String isbn, String prestador);
 }

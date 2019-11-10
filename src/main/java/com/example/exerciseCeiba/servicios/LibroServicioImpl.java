@@ -65,8 +65,10 @@ public class LibroServicioImpl implements LibroServicio {
                 .collect(Collectors.toList());
     }
 
+
+
     @Override
-    public LibroDto prestarLibro(String isbn) {
+    public LibroDto prestarLibro(String isbn, String prestador) {
         Libro libro;
         Optional<Libro> libroRetornado = libroRepositorio.findById(isbn);
         if (noExistenLibrosDisponibles(libroRetornado)) {
@@ -77,7 +79,7 @@ public class LibroServicioImpl implements LibroServicio {
         LocalDate fechaMaxinaEntrega = calcularFechaMaximaEntrega(isbn);
         Integer cantidadDisponibleActual = libro.getStock().getCantidadDisponible();
         Integer cantidadPrestadosActual = libro.getStock().getCantidadPrestada();
-        libro.getStock().getPrestamos().add(crearPrestamo(fechaMaxinaEntrega));
+        libro.getStock().getPrestamos().add(crearPrestamo(fechaMaxinaEntrega, prestador));
         libro.getStock().setCantidadDisponible(cantidadDisponibleActual - 1);
         libro.getStock().setCantidadPrestada(cantidadPrestadosActual + 1);
         Libro libroConNuevaReserva = libroRepositorio.save(libro);
@@ -121,10 +123,11 @@ public class LibroServicioImpl implements LibroServicio {
         return sumaIsbn;
     }
 
-    private Prestamo crearPrestamo(LocalDate fechaMaximaEntrega) {
+    private Prestamo crearPrestamo(LocalDate fechaMaximaEntrega, String prestador) {
         Prestamo prestamo = new Prestamo();
         prestamo.setFechaDeEntrega(LocalDate.now());
         prestamo.setFechaDePrestamo(fechaMaximaEntrega);
+        prestamo.setPrestador(prestador);
         return prestamo;
     }
 

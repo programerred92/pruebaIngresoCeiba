@@ -6,6 +6,7 @@ import com.example.exerciseCeiba.mapper.StockMapper;
 import com.example.exerciseCeiba.repositorios.StockRepositorio;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -26,5 +27,10 @@ public class StockServicioImpl implements StockServicio {
             throw new RegistroNoEncontradoException("ISBN no existe");
         }
         return stock;
+    }
+
+    @Override
+    public List<Stock> buscarStock() {
+        return stockRepositorio.findAll();
     }
 }

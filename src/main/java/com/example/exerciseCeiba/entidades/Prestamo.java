@@ -24,4 +24,8 @@ public class Prestamo {
 
     @Column(name ="fechaDeEntrega")
     private LocalDate fechaDeEntrega;
+
+    @Column(name = "prestador")
+    private String prestador;
+
 }
