@@ -5,7 +5,7 @@ import lombok.Data;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "Stock")
+@Table(name = "libros_stock")
 @Data
 public class Stock {
     @Id
@@ -15,5 +15,6 @@ public class Stock {
     private int cantidadPrestada;
     @Column(name = "cantidadDisponible")
     private int cantidadDisponible;
-
+    @Column(name = "isbn")
+    private String isbn;
 }

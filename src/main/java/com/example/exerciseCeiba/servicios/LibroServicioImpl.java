@@ -11,6 +11,7 @@ import com.example.exerciseCeiba.repositorios.LibroRepositorio;
 import com.example.exerciseCeiba.repositorios.StockRepositorio;
 import org.springframework.stereotype.Service;
 
+import java.lang.reflect.Array;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -22,6 +23,7 @@ public class LibroServicioImpl implements LibroServicio {
     private final LibroRepositorio libroRepositorio;
     private final StockRepositorio stockRepositorio;
     private final StockMapper stockMapper;
+    private Libro libro;
 
     public LibroServicioImpl(LibroMapper libroMapper, LibroRepositorio libroRepositorio, StockRepositorio stockRepositorio, StockMapper stockMapper) {
         this.libroMapper = libroMapper;
@@ -32,15 +34,14 @@ public class LibroServicioImpl implements LibroServicio {
 
     @Override
     public LibroDto agregarLibro(LibroDto libroDto) {
-        Libro libro;
         Optional<Libro> libroRetornado = libroRepositorio.findById(libroDto.getIsbn());
         if (libroRetornado.isPresent()) {
-            libro = libroRetornado.get();
+            this.libro = libroRetornado.get();
             Integer cantidadActualStock = libro.getStock().getCantidadDisponible();
-            libro.getStock().setCantidadDisponible(cantidadActualStock + 1);
+            this.libro.getStock().setCantidadDisponible(cantidadActualStock + 1);
         } else {
-            libro = libroMapper.libroDtoToEntidad(libroDto);
-            libro.setStock(stockBasico());
+            this.libro = libroMapper.libroDtoToEntidad(libroDto);
+            this.libro.setStock(stockBasico());
         }
         Libro libroGuardado = libroRepositorio.save(libro);
         return libroMapper.libroEntidadToDto(libroGuardado);
@@ -84,6 +85,8 @@ public class LibroServicioImpl implements LibroServicio {
         Stock stock = new Stock();
         stock.setCantidadDisponible(1);
         stock.setCantidadPrestada(0);
+        stock.setIsbn(libro.getIsbn());
         return stock;
     }
+
 }
