@@ -20,13 +20,14 @@ public class Stock {
 
     @Column(name = "cantidadDisponible")
     private int cantidadDisponible;
-
+<<<<<<< HEAD
     @Column(name = "isbn")
     private String isbn;
+=======
 
     @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinColumn(name = "prestamoId")
     private List<Prestamo> prestamos = new ArrayList<>();
 
-
+>>>>>>> 5d684c09379beaf85827dbefbb354ba2696bccb8
 }
