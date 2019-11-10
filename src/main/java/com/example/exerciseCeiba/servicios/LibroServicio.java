@@ -11,4 +11,6 @@ public interface LibroServicio {
     void borrarLibro(String isbn);
 
     List<LibroDto> traerLibrosDisponibles();
+
+    LibroDto prestarLibro(String isbn);
 }

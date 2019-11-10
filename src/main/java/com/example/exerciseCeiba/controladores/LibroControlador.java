@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.websocket.server.PathParam;
 import java.util.List;
 
 @RestController
@@ -44,5 +45,12 @@ public class LibroControlador {
     @ResponseStatus(HttpStatus.OK)
     public List<LibroDto> traerLibrosDisponibles(){
         return libroServicio.traerLibrosDisponibles();
+    }
+
+    @CrossOrigin
+    @PostMapping("/prestarLibro/{isbn}")
+    @ResponseStatus(HttpStatus.OK)
+    public LibroDto prestarLibro(@PathVariable String isbn){
+        return libroServicio.prestarLibro(isbn);
     }
 }

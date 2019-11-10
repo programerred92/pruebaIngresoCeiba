@@ -23,9 +23,8 @@ public class Libro {
     @Column(name = "nombre")
     private String nombre;
 
-
     @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.MERGE)
-    @JoinColumn(name = "id")
+    @JoinColumn(name = "stockId ")
     private Stock stock;
 
     public String getIsbn() {
