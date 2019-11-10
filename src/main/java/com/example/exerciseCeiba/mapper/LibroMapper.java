@@ -8,17 +8,16 @@ import org.springframework.stereotype.Component;
 public class LibroMapper {
 
     public LibroDto libroEntidadToDto(Libro libro){
-        LibroDto libroDto = new LibroDto();
-        libroDto.setIsbn(libro.getIsbn());
-        libroDto.setNombre(libro.getNombre());
-
-        return libroDto;
+        return LibroDto.builder()
+                .isbn(libro.getIsbn())
+                .nombre(libro.getNombre())
+                .build();
     }
 
     public Libro libroDtoToEntidad (LibroDto libroDto){
-        Libro libro = new Libro();
-        libro.setIsbn(libroDto.getIsbn());
-        libro.setNombre(libroDto.getNombre());
-        return libro;
+        return Libro.builder()
+                .isbn(libroDto.getIsbn())
+                .nombre(libroDto.getNombre())
+                .build();
     }
 }
