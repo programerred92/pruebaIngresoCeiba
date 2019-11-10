@@ -1,7 +1,12 @@
 package com.example.exerciseCeiba.dto;
 
+import lombok.Builder;
+import lombok.Data;
+
 import javax.validation.constraints.NotNull;
 
+@Data
+@Builder
 public class LibroDto {
 
     @NotNull
@@ -10,19 +15,4 @@ public class LibroDto {
     @NotNull
     private String nombre;
 
-    public String getIsbn() {
-        return isbn;
-    }
-
-    public void setIsbn(String isbn) {
-        this.isbn = isbn;
-    }
-
-    public String getNombre() {
-        return nombre;
-    }
-
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
 }
