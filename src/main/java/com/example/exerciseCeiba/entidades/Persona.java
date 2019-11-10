@@ -11,12 +11,16 @@ public class Persona {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+
     @Column(name = "nombre", length = 150)
     private String nombreCompleto;
+
     @Column(name = "user", length = 50)
     private String user;
+
     @Column(name = "pass", length = 50)
     private String pass;
+
     @ManyToOne
     @JoinColumn(name = "fkRol")
     private Rol rol;

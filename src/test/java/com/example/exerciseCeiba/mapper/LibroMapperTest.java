@@ -40,10 +40,10 @@ public class LibroMapperTest {
     }
 
     private Libro crearLibroEntity() {
-        return Libro.builder()
-                .isbn(ISBN_TEST)
-                .nombre(NOMBRE_TEST)
-                .build();
+        Libro libro = new Libro();
+        libro.setNombre(NOMBRE_TEST);
+        libro.setIsbn(ISBN_TEST);
+        return libro;
     }
 
 

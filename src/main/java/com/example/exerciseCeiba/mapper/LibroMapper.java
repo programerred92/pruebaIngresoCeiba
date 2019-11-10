@@ -15,9 +15,9 @@ public class LibroMapper {
     }
 
     public Libro libroDtoToEntidad (LibroDto libroDto){
-        return Libro.builder()
-                .isbn(libroDto.getIsbn())
-                .nombre(libroDto.getNombre())
-                .build();
+        Libro libro = new Libro();
+        libro.setNombre(libroDto.getNombre());
+        libro.setIsbn(libroDto.getIsbn());
+        return libro;
     }
 }
