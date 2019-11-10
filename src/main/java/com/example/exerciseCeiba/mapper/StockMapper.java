@@ -12,16 +12,13 @@ public class StockMapper {
     public Stock stockDtoToEntidad(StockDto stockDto){
         Stock stock = new Stock();
         stock.setId(stockDto.getId());
-        stock.setCantidadPrestada(stockDto.getCantidadPrestada());
-        stock.setCantidadDisponible(stockDto.getCantidadDisponible());
+
         return stock;
     }
 
     public StockDto stockEntityToDto(Stock stock){
         StockDto stockDto = new StockDto();
         stockDto.setId(stock.getId());
-        stockDto.setCantidadPrestada(stock.getCantidadPrestada());
-        stockDto.setCantidadDisponible(stock.getCantidadDisponible());
         return stockDto;
     }
 }

@@ -15,7 +15,5 @@ public class Stock {
     private int cantidadPrestada;
     @Column(name = "cantidadDisponible")
     private int cantidadDisponible;
-    @ManyToOne
-    @JoinColumn(name = "isbn")
-    private Libro libro;
+
 }
