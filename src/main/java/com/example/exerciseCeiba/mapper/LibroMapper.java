@@ -7,6 +7,8 @@ import org.springframework.stereotype.Component;
 @Component
 public class LibroMapper {
 
+    //Todo inyectar mapper de Stock y Prestamo
+
     public LibroDto libroEntidadToDto(Libro libro){
         return LibroDto.builder()
                 .isbn(libro.getIsbn())

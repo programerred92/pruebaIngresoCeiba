@@ -68,13 +68,12 @@ public class LibroServicioImpl implements LibroServicio {
 
     @Override
     public LibroDto prestarLibro(String isbn) {
-        Libro libro;
         Optional<Libro> libroRetornado = libroRepositorio.findById(isbn);
         if (noExistenLibrosDisponibles(libroRetornado)) {
             throw new RegistroNoEncontradoException("No Existen Libros con el isbn " + isbn);
         }
 
-        libro = libroRetornado.get();
+        Libro libro = libroRetornado.get();
         LocalDate fechaMaxinaEntrega = calcularFechaMaximaEntrega(isbn);
         Integer cantidadDisponibleActual = libro.getStock().getCantidadDisponible();
         Integer cantidadPrestadosActual = libro.getStock().getCantidadPrestada();
