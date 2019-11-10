@@ -19,7 +19,6 @@ public class LibroMapper {
         Libro libro = new Libro();
         libro.setIsbn(libroDto.getIsbn());
         libro.setNombre(libroDto.getNombre());
-
         return libro;
     }
 }

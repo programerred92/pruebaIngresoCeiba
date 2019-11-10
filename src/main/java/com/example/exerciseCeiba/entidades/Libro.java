@@ -1,6 +1,5 @@
 package com.example.exerciseCeiba.entidades;
 
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -12,7 +11,7 @@ import javax.persistence.Table;
 public class Libro {
 
     @Id
-    @GeneratedValue
+    @Column (name = "Isbn")
     private String isbn;
 
     @Column(name = "Nombre")
