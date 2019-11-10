@@ -11,8 +11,8 @@ import java.util.List;
 @Service
 public class PersonaServicioImpl implements PersonaServicio {
 
-    PersonaMapper personaMapper;
-    PersonaRepositorio personaRepositorio;
+    private PersonaMapper personaMapper;
+    private PersonaRepositorio personaRepositorio;
 
     public PersonaServicioImpl(PersonaMapper personaMapper, PersonaRepositorio personaRepositorio){
         this.personaMapper = personaMapper;
@@ -33,6 +33,11 @@ public class PersonaServicioImpl implements PersonaServicio {
 
     public void borrarPersona(int id) {
         personaRepositorio.deleteById(id);
+    }
+
+    @Override
+    public List<Persona> actualizarPersona() {
+        return null;
     }
 
 

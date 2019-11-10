@@ -13,6 +13,7 @@ public class PersonaMapper {
         personaDto.setNombreCompleto(persona.getNombreCompleto());
         personaDto.setUser(persona.getUser());
         personaDto.setPassword(persona.getPass());
+        personaDto.setRol(persona.getRol());
         return personaDto;
     }
 
@@ -22,6 +23,7 @@ public class PersonaMapper {
         persona.setNombreCompleto(personaDto.getNombreCompleto());
         persona.setUser(personaDto.getUser());
         persona.setPass(personaDto.getPassword());
+        persona.setRol(personaDto.getRol());
         return persona;
     }
 }

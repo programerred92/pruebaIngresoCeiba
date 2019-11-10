@@ -14,4 +14,6 @@ public interface PersonaServicio {
     List<Persona> consultarPersonas();
 
     void borrarPersona(int id);
+
+    List<Persona> actualizarPersona();
 }
